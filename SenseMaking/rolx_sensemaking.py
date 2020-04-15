@@ -25,11 +25,11 @@
 import pandas as pd
 
 # to be M
-node_measurements = pd.read_csv('../Data/features_extracted.csv')
+node_measurements = pd.read_csv('/Users/luis/Documents/Spring 2020/Current_Topics_AI/Code/Data/features_extracted.csv')
 print(node_measurements.shape)
 
 # to be G
-node_by_role = pd.read_csv('../Data/transposed_roles.csv')
+node_by_role = pd.read_csv('/Users/luis/Documents/Spring 2020/Current_Topics_AI/Code/Data/transposed_roles.csv')
 print(node_by_role.shape)
 
 
