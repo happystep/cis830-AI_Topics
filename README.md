@@ -1,4 +1,4 @@
-# Topics in Artificial Intelligence Course Code
+# Topics in Artificial Intelligence - Technical Report Code
 
 In this repo we will do the following.
 1. Implement model explanation (sensemaking) (section 5 of following article): https://web.eecs.umich.edu/~dkoutra/papers/12-kdd-recursiverole.pdf
