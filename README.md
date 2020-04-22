@@ -5,5 +5,5 @@ In this repo we will do the following.
 2. Implement constraints (sparsity and alternative roles) for guided learning in role discovery based on the following paper: https://dl.acm.org/doi/10.1145/2487575.2487620
 
 
-This repo holds the code for the course CIS 830 Topics in Artificial Intelligence, taken Spring 2020. 
+This repo holds my code for the course CIS 830 Topics in Artificial Intelligence, taken Spring 2020. 
     
