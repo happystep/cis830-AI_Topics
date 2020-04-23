@@ -30,7 +30,8 @@ m_array = node_measurements.to_numpy()
 g_array = node_by_role_cleaned.to_numpy()
 
 '''
-NodeSense takes as input RolX ’s node-by-role matrix, G, and a matrix of node measurements, M. 
+NodeSense takes as input RolX ’s node-by-role matrix, G, and a matrix of node measurements, M. In this case they are 
+total_degree, in_degree, internal_edges, out_degree, external_edges
 NodeSense then computes a nonnegative matrix E such that G·E ≈ M. The matrix E represents the role contribution to node measurements. 
 A default matrix E′ is also computed by using G′ = ones(n, 1), where the n nodes belong to one role. 
 Then, for each role r and for each measurement s, NodeSense computes E(r,s) / E′(r,s).
