@@ -1,7 +1,7 @@
 #  RolX used in MS Thesis.
 
 import networkx
-from GuidedLearning import neo4j as ts
+import neo4j as ts
 import pandas as pd
 import warnings
 from pprint import pprint

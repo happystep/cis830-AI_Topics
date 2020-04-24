@@ -1,6 +1,6 @@
 #  Neo4j Python Driver connections 
 
-from neo4j.v1 import GraphDatabase
+from neo4j import GraphDatabase, basic_auth
 
 class HPCJobDatabase(object):
     def __init__(self, uri, user, password):
