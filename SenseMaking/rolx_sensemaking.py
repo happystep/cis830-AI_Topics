@@ -4,6 +4,10 @@
 import pandas as pd
 import numpy as np
 
+#  UNUSED FILE (CURRENTLY)
+#  /Users/luis/Documents/Spring 2020/Current_Topics_AI/Code/Data/node_role_assignment.csv
+#  /Users/luis/Documents/Spring 2020/Current_Topics_AI/Code/Data/node_role_membership_by_percentage.csv
+
 # to be M
 node_measurements = pd.read_csv('/Users/luis/Documents/Spring 2020/Current_Topics_AI/Code/Data/features_extracted.csv')
 
@@ -55,5 +59,5 @@ def Node_Sense(G, M):
 results = Node_Sense(g_array, m_array)
 e_dataframe = pd.DataFrame(results[0])
 ratios_dataframe = pd.DataFrame(results[1])
-e_dataframe.to_csv('role_contribution_to_node_measurements.csv')
-ratios_dataframe.to_csv('role-contribution_to_node-measurements_compared_to_default.csv')
+e_dataframe.to_csv('/Users/luis/Documents/Spring 2020/Current_Topics_AI/Code/Results/role_contribution_to_node_measurements.csv')
+ratios_dataframe.to_csv('/Users/luis/Documents/Spring 2020/Current_Topics_AI/Code/Results/role-contribution_to_node-measurements_compared_to_default.csv')
