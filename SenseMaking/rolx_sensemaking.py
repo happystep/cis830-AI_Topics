@@ -44,16 +44,21 @@ Exerpt from Paper https://dl.acm.org/doi/10.1145/2339530.2339723
 '''
 def Node_Sense(G, M):
     E = np.dot(M.T, G)
+    E_non_roles = E[:,1]
     g_prime = np.ones((60307,1))
     E_prime = np.dot(M.T, g_prime)
     ratios = []
-    e_first_row = E[:,0]
+    e_first_row = E[:,1]
     e_prime_first_row = E_prime[:,0]
-    for i in range(6):
+    for i in range(1,6):
         temp = e_first_row[i] / e_prime_first_row[i]
         ratios.append(temp)
 
-    return(E, ratios)
+    default_contribution = []
+    for i in range(1,6):
+        default_contribution.append(E_non_roles[i])
+
+    return(default_contribution, ratios)
 
 
 results = Node_Sense(g_array, m_array)
