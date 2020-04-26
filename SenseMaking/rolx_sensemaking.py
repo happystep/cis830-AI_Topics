@@ -6,7 +6,9 @@ import numpy as np
 
 #  UNUSED FILE (CURRENTLY)
 #  /Users/luis/Documents/Spring 2020/Current_Topics_AI/Code/Data/node_role_assignment.csv
-#  /Users/luis/Documents/Spring 2020/Current_Topics_AI/Code/Data/node_role_membership_by_percentage.csv
+
+# to be N (new attempt)
+node_by_role_percentages = pd.read_csv('/Users/luis/Documents/Spring 2020/Current_Topics_AI/Code/Data/node_role_membership_by_percentage.csv')
 
 # to be M
 node_measurements = pd.read_csv('/Users/luis/Documents/Spring 2020/Current_Topics_AI/Code/Data/features_extracted.csv')
@@ -32,6 +34,7 @@ node_by_role_cleaned.role[node_by_role_cleaned.role == 'role_2'] = 2
 node_by_role_cleaned['role'] = node_by_role_cleaned['role'].astype(int)
 m_array = node_measurements.to_numpy()
 g_array = node_by_role_cleaned.to_numpy()
+n_array = node_by_role_percentages.to_numpy()
 
 '''
 NodeSense takes as input RolX â€™s node-by-role matrix, G, and a matrix of node measurements, M. In this case they are 
@@ -42,26 +45,27 @@ Then, for each role r and for each measurement s, NodeSense computes E(r,s) / Eâ
 This ratio provides the role-contribution to node-measurements compared to the default contribution.
 Exerpt from Paper https://dl.acm.org/doi/10.1145/2339530.2339723
 '''
-def Node_Sense(G, M):
+def Node_Sense(G, M, X):
     E = np.dot(M.T, G)
     E_non_roles = E[:,1]
-    g_prime = np.ones((60307,1))
+    # g_prime = np.ones((60307,1))
+    g_prime = X
     E_prime = np.dot(M.T, g_prime)
+    print(E_prime.shape)
     ratios = []
-    e_first_row = E[:,1]
+    # e_first_row = E[:,1]
     e_prime_first_row = E_prime[:,0]
     for i in range(1,6):
-        temp = e_first_row[i] / e_prime_first_row[i]
+        for j in range(1,2):
+            temp = []
+            temp.append(E[i][j] / E_prime[i][j])
         ratios.append(temp)
 
-    default_contribution = []
-    for i in range(1,6):
-        default_contribution.append(E_non_roles[i])
-
-    return(default_contribution, ratios)
+    return(E, ratios)
 
 
-results = Node_Sense(g_array, m_array)
+# results = Node_Sense(g_array, m_array)
+results = Node_Sense(n_array, m_array, g_array)
 e_dataframe = pd.DataFrame(results[0])
 ratios_dataframe = pd.DataFrame(results[1])
 e_dataframe.to_csv('/Users/luis/Documents/Spring 2020/Current_Topics_AI/Code/Results/role_contribution_to_node_measurements.csv')
