@@ -51,7 +51,6 @@ def Node_Sense(G, M, X):
     # g_prime = np.ones((60307,1))
     g_prime = X
     E_prime = np.dot(M.T, g_prime)
-    print(E_prime.shape)
     ratios = []
     # e_first_row = E[:,1]
     e_prime_first_row = E_prime[:,0]
